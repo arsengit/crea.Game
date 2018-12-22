@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 720px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.balls {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 1px 1px 1px;
+    transition: transform .2s;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.balls:hover {
+    transform: scale(1.1);
+}
