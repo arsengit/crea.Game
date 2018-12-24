@@ -1,34 +1,35 @@
-let rows = 10;
-let cols = 10;
-let cnt = [];
-let id = [1, 2, 3, 4]
+const rows = 10;
+const cols = 10;
 let colors = ["blue", "red", "green", "orange"];
 const container = document.getElementById("container");
 
+const ballsList = [];
 
-function paint() {
-    for (let i = 0; i < rows; i++) {
-        cnt[i] = [];
-        for (let j = 0; j < cols; j++) {
-            
-            let balls = document.createElement("div");
-            cnt[i][j] = colors[Math.floor(Math.random() * colors.length)];
-            cnt[i][j] = balls;
-            balls.className = "balls";
-            balls.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            container.appendChild(balls);
-            balls.addEventListener("click", ()=> {
-                    checkColor();             
-            });
-
-            function checkColor () {
-                if ( cnt[i][j].style.backgroundColor === cnt[i][j+1].style.backgroundColor || cnt[i][j].style.backgroundColor === cnt[i][j-1].style.backgroundColor){
-                    balls.style.backgroundColor = "white"
-                }
-            }
+function build() {
+    for (let i = 1; i <= rows; i++) {
+        ballsList[i] = [];
+        for (let j = 1; j <= cols; j++) {
+            let ball = document.createElement("div");
+            ball.dataset.row = i;
+            ball.dataset.column = j;
+            ball.className = "balls";
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            ball.style.backgroundColor = color;
+            ball.dataset.color = color;
+            container.appendChild(ball);
+            ball.addEventListener("click", handleClick);
+            ballsList[i][j] = ball;
         }
     }
-
 }
 
-paint();
+function checkColor () {
+    
+}
+
+
+function handleClick () {
+    
+}
+
+build();
