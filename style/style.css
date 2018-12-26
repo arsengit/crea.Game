@@ -16,12 +16,13 @@
     margin-bottom: 10px;
 }
 .balls {
+    outline: none;
     width: 60px;
     height: 60px;
     display: inline-block;
     border-radius: 50%;
     margin: 1px 1px 1px;
-    transition: transform .2s;
+    transition: all .2s;
     margin: 5px;
     cursor: pointer;
 }
