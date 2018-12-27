@@ -4,6 +4,7 @@ let colors = ["blue", "red", "green", "orange"];
 const container = document.getElementById("container");
 let checked = {};
 let matches = [];
+let clickedColor;
 
 const ballsList = [];
 const nodeList = {};
@@ -31,16 +32,17 @@ function build() {
     }
 }
 
-function checkColor(color, row, column) {
+
+
+function checkColor(row, column) {
     if(!('key'+row+column in checked)) {
         checked['key'+row+column] = ballsList[row][column];
-        if(ballsList[row][column].color === color) {
-            // console.log(ballsList[row][column]);
+        if(ballsList[row][column].color === clickedColor) {
             matches.push(ballsList[row][column]);
-            if(row - 1 > 0) checkColor(color, row - 1, column);
-            if(row + 1 <= rows) checkColor(color, row + 1, column);
-            if(column - 1 > 0) checkColor(color, row, column - 1);
-            if(column + 1 <= cols) checkColor(color, row, column + 1);
+            if(row - 1 > 0) checkColor(row - 1, column);
+            if(row + 1 <= rows) checkColor(row + 1, column);
+            if(column - 1 > 0) checkColor(row, column - 1);
+            if(column + 1 <= cols) checkColor(row, column + 1);
         }
     }
 }
@@ -49,10 +51,11 @@ function handleClick (eventObj) {
     checked = {};
     matches = [];
     const { color, row, column } = eventObj.target.dataset;
-    checkColor(color, +row, +column);
+    clickedColor = color
+    checkColor(+row, +column);
     if(matches.length > 2) {
         matches.forEach((ball) => {
-            nodeList['key'+ball.row+ball.column].style.backgroundColor = 'white';
+            nodeList['key'+ball.row+ball.column].style.backgroundColor = 'transparent';
             const color = colors[Math.floor(Math.random() * colors.length)];
             nodeList['key'+ball.row+ball.column].dataset.color = color;
             ballsList[ball.row][ball.column].color = color;

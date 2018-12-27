@@ -5,28 +5,88 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #ced7f694;
+}
+
 #container {
+    border-radius: 12px;
+    margin-top: 10px !important;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border: 1px solid #969696b3;
+    background: #78cbf426;
     width: 720px;
     margin: 0 auto;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    
 }
 .balls {
-    outline: none;
     width: 60px;
     height: 60px;
     display: inline-block;
     border-radius: 50%;
     margin: 1px 1px 1px;
-    transition: all .2s;
+    transition: all .4s;
     margin: 5px;
     cursor: pointer;
 }
 
 .balls:hover {
     transform: scale(1.1);
+}
+
+.left, .right {
+    display: flex;
+    margin: 0 auto;
+}
+
+
+.main {
+    display: flex;
+}
+
+
+h2 {
+    font-size: 120px;
+    font-family: sans-serif;
+    color: #042829b9;
+    animation: crea;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out
+}
+
+
+
+@keyframes crea {
+    from {
+        color: #042829b9
+    }
+    to {
+        color: rgb(61, 61, 117);
+    }
+}
+
+.pulse {
+    animation: puls 15s linear infinite;
+    margin-top: 40px;
+}
+
+@keyframes puls {
+    0% {
+        box-shadow: 0 0 0 0 rgba(49, 84, 102, 0.7),0 0 0 0 rgba(49, 84, 102, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 30px rgba(128, 159, 255, 0),0 0 0 0 rgba(49, 84, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 30px rgba(128, 159, 255, 0),0 0 0 20px rgba(128, 159, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(128, 159, 255, 0),0 0 0 20px rgba(128, 159, 255, 0);
+    }
 }
