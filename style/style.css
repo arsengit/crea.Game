@@ -9,6 +9,9 @@ body {
     background: #ced7f694;
 }
 
+.column {
+    width: 70px;
+}
 #container {
     border-radius: 12px;
     margin-top: 10px !important;
@@ -21,10 +24,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding: 5px;
+    align-items: flex-end;
     
 }
 .balls {
     width: 60px;
+    position: relative;
     height: 60px;
     display: inline-block;
     border-radius: 50%;
@@ -32,6 +38,8 @@ body {
     transition: all .4s;
     margin: 5px;
     cursor: pointer;
+    z-index: 2;
+    top: 0;
 }
 
 .balls:hover {
